@@ -1,0 +1,87 @@
+body {
+    margin: 0;
+    padding: 0;
+    /* display: flex;
+    justify-content: center; */
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    font-family: "Arial", sans-serif;
+}
+
+.category-bar {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure the category bar is on top of other elements */
+}
+
+.category-bar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+.category-bar a:hover {
+    color: #ff0000; /* Change color on hover (you can choose your own color) */
+}
+
+.content {
+    margin-top: 60px; /* Adjust the margin to account for the fixed category bar */
+    padding: 20px;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 16px;
+    max-width: 800px;
+    margin: 5rem auto;
+}
+
+img {
+    width: 100%; /* Set a fixed height for the grid items */
+    height: 15.1rem;
+    object-fit: contain; /* Maintain aspect ratio and cover the container */
+    /* border-radius: 3px; */
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    border: 0.5px solid #dcdcdc;
+    transition: transform 0.2s ease-in-out;
+}
+
+img:hover {
+    transform: scale(1.1);
+}
+
+/* Media query for iPhone 12 Pro Max and other small screens */
+@media (max-width: 800px) {
+    body,
+    html {
+        height: auto;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr; /* Single column layout */
+        justify-items: center; /* Center items horizontally */
+        max-width: 90%; /* Adjust as needed */
+        margin: 10rem auto;
+
+
+    }
+
+    img {
+        width: 100%; /* Ensure images take full width in mobile view */
+        height: auto; /* Ensure images take full height in mobile view */
+        max-width: none; /* Remove max-width constraint */
+    }
+    img:hover {
+        transform: none;
+    }
+}
